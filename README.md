@@ -1,1 +1,2 @@
-# poy-boy-revolution
+# Poy Boy: Revolution
+Poy Boy: Revolution is a modernised take on the old game Poy Poy 2 made for the Playstation 2. This game is not made to impersonate Poy Poy 2 but instead inspired by the concept of having a small map with limited time and focus on total mayham, dealing damage to your friends.  
