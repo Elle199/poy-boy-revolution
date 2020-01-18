@@ -4,15 +4,28 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [SerializeField] private CharacterController _characterController;
+    [SerializeField] private Transform _cameraTransform;
+
+    [Header("Player Settings")]
+    [SerializeField] private float movementSpeed = 1f;
+    
+
+    private float cameraRotY;
+
     void Start()
     {
-        
+
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        float inputX = Input.GetAxisRaw("Horizontal");
+        float inputZ = Input.GetAxisRaw("Vertical");
+
+        Vector3 movement = new Vector3(inputX, 0, inputZ);
+        movement = transform.InverseTransformDirection(movement);
+
+        _characterController.Move(movement * movementSpeed * Time.deltaTime);
     }
 }
