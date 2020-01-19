@@ -7,6 +7,8 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
 
     public GameState GameState { get; private set; }
+    [SerializeField]
+    public GameState gameStateOverride;
 
     private void Awake()
     {
@@ -22,7 +24,10 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        
+        GameState = gameStateOverride;
+
+        if (GameState == GameState.Playing)
+            StartGame();
     }
 
     void Update()
@@ -33,16 +38,22 @@ public class GameManager : MonoBehaviour
     public void StartGame()
     {
         GameState = GameState.Playing;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     public void Continue()
     {
         GameState = GameState.Playing;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     public void PauseGame()
     {
         GameState = GameState.Paused;
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 }
 
